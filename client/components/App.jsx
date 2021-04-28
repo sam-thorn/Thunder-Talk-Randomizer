@@ -1,30 +1,43 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchFruits } from '../actions'
+import { createRandomList, humans } from './appHelper'
 
 function App (props) {
-  useEffect(() => {
-    props.dispatch(fetchFruits())
+    const [seedHumans, setSeedHumans] = useState(humans)
+    const [list, setList] = useState([])
+
+    useEffect(() => {
+    setList(createRandomList(seedHumans))
   }, [])
 
   return (
     <>
-      <div className='app'>
-        <h1>Fullstack Boilerplate - with Fruits!</h1>
-        <ul>
-          {props.fruits.map(fruit => (
-            <li key={fruit}>{fruit}</li>
-          ))}
-        </ul>
+      <div className='app container'>
+        <div className='header'>
+          <h1>Jared's Astonishing Randomizer of Humans</h1>
+        </div>
+      
+        <div className='list'>
+          <h1>Seed list of Humans</h1>
+          <ul>
+            {humans.map(human => (
+              <li key={human}>{human}</li>
+            ))}
+          </ul>
+        </div>
+        <div className='list'>
+          <h1>Random Humans</h1>
+          <ul>
+            {list.map(person => (
+              <li key={person}>{person}</li>
+            ))}
+          </ul>
+        </div>
+      
       </div>
     </>
   )
 }
-const mapStateToProps = (globalState) => {
-  return {
-    fruits: globalState.fruits
-  }
-}
 
-export default connect(mapStateToProps)(App)
+export default App
