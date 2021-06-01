@@ -8,9 +8,10 @@ function App (props) {
   const [list, setList] = useState([])
   const [formEntry, setFormEntry] = useState([])
 
-  // useEffect(() => {
-  //   setList(createRandomList(seedHumans))
-  // }, [])
+  function randomise () {
+    setList(createRandomList(humans))
+  }
+
   function handleChange (event) {
     setFormEntry(event.target.value)
   }
@@ -21,6 +22,7 @@ function App (props) {
       ...humans,
       formEntry
     ])
+    event.target.reset()
   }
 
   return (
@@ -42,13 +44,14 @@ function App (props) {
         {/* name input form */}
         <form onSubmit={handleSubmit}>
           <label>
-            Name:
+            Add a name:
             <input type='text' name='name' onChange={handleChange} />
           </label>
           <input type='submit' value='Submit' />
         </form>
         <div className='list'>
           <h1>Seed list of Humans</h1>
+          <button onClick={randomise}>Randomise</button>
           <ul>
             {humans.map(human => (
               <li key={human}>{human}</li>
