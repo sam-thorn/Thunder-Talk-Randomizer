@@ -1,17 +1,11 @@
-import React, { useEffect, useState, forceUpdate } from 'react'
+import React, { useState } from 'react'
 
 import { createRandomList } from './appHelper'
 
 function App (props) {
-  // const [seedHumans, setSeedHumans] = useState(humans)
   const [humans, setHumans] = useState(["Jared", "Sam", "Ulysses"])
   const [list, setList] = useState([])
   const [formEntry, setFormEntry] = useState([])
-  let trigger = 0
-
-  useEffect(() => {
-    setHumans(humans)
-  }, [trigger])
 
   function randomise () {
     setList(createRandomList(humans))
@@ -33,7 +27,7 @@ function App (props) {
   const handleDelete = (event) => {
     const name = event.target.className
     const index = humans.indexOf(name)
-    let array = humans
+    const array = humans
 
     array.splice(index, 1)
     setHumans([...array])
@@ -45,15 +39,6 @@ function App (props) {
         <div className='header'>
           <h1>Jared and Sam's Astonishing Randomizer of Humans</h1>
         </div>
-        {/* to be replaced by form */}
-        {/* <div className='list'>
-          <h1>Seed list of Humans</h1>
-          <ul>
-            {humans.map(human => (
-              <li key={human}>{human}</li>
-            ))}
-          </ul>
-        </div> */}
 
         {/* name input form */}
         <form onSubmit={handleSubmit}>
@@ -72,7 +57,6 @@ function App (props) {
             ))}
           </ul>
         </div>
-
 
         {/* Output randomised list */}
         <div className='list'>
