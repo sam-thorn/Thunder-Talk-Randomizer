@@ -39,7 +39,7 @@ function App (props) {
 
         {/* header */}
         <div className='header'>
-          <h1>Jared and Sam's Astonishing Randomizer of Humans</h1>
+          <h1>Jared and Sam's Astonishing Human Randomizer Machine</h1>
         </div>
 
         {/* Inputs bar */}
@@ -50,24 +50,22 @@ function App (props) {
           <div className='list-container'>
             <div className='list-form'>
               <form onSubmit={handleSubmit}>
-                <label>
-                  Add a name:
-                  <input type='text' name='name' onChange={handleChange} />
-                </label>
-                <input type='submit' value='Submit' />
+                <label>Add a name:</label>
+                <input className='input-box' type='text' name='name' onChange={handleChange} />
+                <input className='submit-button' type='submit' value='Submit' />
               </form>
             </div>
             <div className='list-names'>
-              <h1>Seed list of Humans</h1>
+              <h1>List of Humans</h1>
               <ul>
                 {humans.map(human => (
-                  <><li key={human}><button className={human} onClick={handleDelete}>X</button>  {human}</li></>
+                  <><li key={human}><button className={human} onClick={handleDelete}>x</button>  {human}</li></>
                 ))}
               </ul>
             </div>
           </div>
           <div className='randomiser-container'>
-            <button onClick={randomise}>Randomise</button>
+            <button className='randomise-button' onClick={randomise}>Randomise</button>
             <div>
               <h1>Random Humans</h1>
               <ul>
