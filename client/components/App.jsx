@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { createRandomList } from './appHelper'
 
 function App (props) {
-  const [humans, setHumans] = useState(["Jared", "Sam", "Ulysses"])
+  const [humans, setHumans] = useState(['Jared', 'Sam', 'Ulysses'])
   const [list, setList] = useState([])
   const [formEntry, setFormEntry] = useState([])
 
@@ -43,22 +43,21 @@ function App (props) {
         </div>
 
         {/* Inputs bar */}
-       
 
         {/* Lists */}
         <div className='container'>
 
           <div className='list'>
-          <div className='container'>
-          <form onSubmit={handleSubmit}>
-            <label>
+            <div className='container'>
+              <form onSubmit={handleSubmit}>
+                <label>
             Add a name:
-              <input type='text' name='name' onChange={handleChange} />
-            </label>
-            <input type='submit' value='Submit' />
-          </form>
+                  <input type='text' name='name' onChange={handleChange} />
+                </label>
+                <input type='submit' value='Submit' />
+              </form>
 
-        </div>
+            </div>
             <div>
               <h1>Seed list of Humans</h1>
               <ul>
@@ -69,7 +68,7 @@ function App (props) {
             </div>
 
             <div className='list'>
-            <button onClick={randomise}>Randomise</button>
+              <button onClick={randomise}>Randomise</button>
               <div>
                 <h1>Random Humans</h1>
                 <ul>
