@@ -35,7 +35,7 @@ function App (props) {
 
   return (
     <>
-      <div className='app container'>
+      <div className='app-container'>
 
         {/* header */}
         <div className='header'>
@@ -45,42 +45,38 @@ function App (props) {
         {/* Inputs bar */}
 
         {/* Lists */}
-        <div className='container'>
+        <div className='body-container'>
 
-          <div className='list'>
-            <div className='container'>
+          <div className='list-container'>
+            <div className='list-form'>
               <form onSubmit={handleSubmit}>
                 <label>
-            Add a name:
+                  Add a name:
                   <input type='text' name='name' onChange={handleChange} />
                 </label>
                 <input type='submit' value='Submit' />
               </form>
-
             </div>
-            <div>
+            <div className='list-names'>
               <h1>Seed list of Humans</h1>
               <ul>
                 {humans.map(human => (
-                  <><div key={human}><button className={human} onClick={handleDelete}>X</button>  {human}</div></>
+                  <><li key={human}><button className={human} onClick={handleDelete}>X</button>  {human}</li></>
                 ))}
               </ul>
             </div>
-
-            <div className='list'>
-              <button onClick={randomise}>Randomise</button>
-              <div>
-                <h1>Random Humans</h1>
-                <ul>
-                  {list.map(person => (
-                    <div className='match_button_height' key={person}>{person}</div>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
           </div>
-
+          <div className='randomiser-container'>
+            <button onClick={randomise}>Randomise</button>
+            <div>
+              <h1>Random Humans</h1>
+              <ul>
+                {list.map(person => (
+                  <div className='match_button_height' key={person}>{person}</div>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </>
