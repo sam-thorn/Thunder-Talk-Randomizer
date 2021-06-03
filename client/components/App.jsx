@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import { createRandomList } from './appHelper'
 
+import Header from './Header'
+
 function App (props) {
   const [humans, setHumans] = useState(['Jared', 'Sam', 'Ulysses'])
   const [list, setList] = useState([])
@@ -36,17 +38,9 @@ function App (props) {
   return (
     <>
       <div className='app-container'>
-
-        {/* header */}
-        <div className='header'>
-          <h1>Jared and Sam's Astonishing Human Randomizer Machine</h1>
-        </div>
-
-        {/* Inputs bar */}
-
+        <Header />
         {/* Lists */}
         <div className='body-container'>
-
           <div className='list-container'>
             <div className='list-form'>
               <form onSubmit={handleSubmit}>
@@ -70,7 +64,7 @@ function App (props) {
               <h1>Random Humans</h1>
               <ul>
                 {list.map(person => (
-                  <div className='match_button_height' key={person}>{person}</div>
+                  <div key={person}>{person}</div>
                 ))}
               </ul>
             </div>
