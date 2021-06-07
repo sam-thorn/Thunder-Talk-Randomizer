@@ -17,3 +17,12 @@ export function createRandomList (arr) {
   }
   return randomisedList
 }
+
+export function noDuplicates (str, arr) {
+  const dupe = (element) => element === str
+  if (arr.some(dupe)) {
+    return false
+  } else {
+    return true
+  }
+}

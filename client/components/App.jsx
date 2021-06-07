@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { createRandomList } from './appHelper'
+import { createRandomList, noDuplicates } from './appHelper'
 
 import Header from './Header'
 
@@ -19,10 +19,14 @@ function App (props) {
 
   function handleSubmit (event) {
     event.preventDefault()
-    setHumans([
-      ...humans,
-      formEntry
-    ])
+    if (noDuplicates(formEntry, humans)) {
+      setHumans([
+        ...humans,
+        formEntry
+      ])
+    } else {
+      window.confirm('This name already exists on the list! Please enter a unique name.')
+    }
     event.target.reset()
   }
 
