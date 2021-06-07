@@ -45,7 +45,7 @@ function App (props) {
             <div className='list-form'>
               <form onSubmit={handleSubmit}>
                 <label>Add a name:</label>
-                <input className='input-box' type='text' name='name' onChange={handleChange} />
+                <input className='input-box' type='text' name='name' onChange={handleChange} required />
                 <input className='submit-button' type='submit' value='Submit' />
               </form>
             </div>
