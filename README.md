@@ -1,8 +1,4 @@
-
-
-<p align="center">
-  ⛈️
-  </p>
+⛈️
 
 An app to randomise a list of names. Built with React utilising state and forms. 
 
